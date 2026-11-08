@@ -1,0 +1,99 @@
+*{
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    cursor: url("../images/cursor.png"), auto;
+}
+
+#titleScreen{
+    background-image: url("../images/title_bg.gif");
+    width: 100vw;
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: grid;
+    grid-template-rows: 70vh 30vh;
+    grid-template-areas: "titleLogo" "startBtn";
+}
+
+#titleLogo{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    grid-area: titleLogo;
+    transform: translate(-30%, 100vh);
+    animation: jumpUp 0.7s ease-out forwards; /*JumpUp wybór animacji przy show, ease-out/in dynamika animacji, forwards zostawia go tam, gdzie był po skończeniu animacji (inaczej by wrócił do stanu początkowego)*/
+
+}
+
+/*Procenty = moment w animacji
+adnotacja @keyframes służy do
+*/
+@keyframes jumpUp {
+    0% {
+        transform: translate(-50%, 100vh); /*przesuwa sobie element na stronie bez ruszania jego pierwotnej pozycji*/
+    }
+    60% {
+        transform: translate(-50%, -70%);
+    }
+    80% {
+        transform: translate(-50%, -50%);
+    }
+    100% {
+        transform: translate(-50%, -60%);
+    }
+}
+
+#startBtn{
+    display: block;
+    margin: auto;
+    margin-top: 6vh;
+    width: 20vw;
+    height: 10vh;
+    background: linear-gradient(#ff2282,#f5ebf0);
+    border:5px solid #fff;
+    border-radius: 30px;
+    color: #FFF;
+    font-family: 'Bubblegum Sans';font-size: 22px;
+    font-size: 35px;
+    letter-spacing: 5px;
+}
+
+#startBtn:hover{
+    background: linear-gradient(#ff8abd,#efe0e8);
+    border:5px solid #ec1e74;
+    color: #ec1e74;
+}
+
+
+@keyframes pulseRing { 
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+.playButtonWrapper {
+  position: relative;
+  display: inline-block;
+  grid-area: startBtn;
+
+}
+
+.pulsingRing {
+  position: absolute;
+  inset: 0;
+  border: 7px solid #ec1e74;
+  border-radius: 100px;
+  width: 20vw;
+  height: 10vh;
+  animation: pulseRing 1s ease-out infinite;
+  pointer-events: none;
+  margin: auto; 
+  margin-top: 6vh;
+}
+

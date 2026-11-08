@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/4.0.0/jquery.min.js"></script>
+    <title>Miku Miku Match</title>
+    <link rel="icon" type="image/x-icon" href="images/site_icon.ico">
+    <link rel="stylesheet" href="style/style.css">
+    <link href='https://fonts.googleapis.com/css?family=Bubblegum Sans' rel='stylesheet'>
+    <script>
+        $(function(){
+
+            $("#titleLogo").show();
+            $('#startBtn').on('mouseenter', function() {
+                const sound = $('#hoverSound')[0];
+                sound.currentTime = 0;
+                sound.play();
+            });
+            $('#startBtn').click(function() {
+                const sound = $('#clickSound')[0];
+                sound.currentTime = 0;
+                sound.play();
+            });
+
+            let musicPlaying = false;//z automatu nie leci :( limitacje przegladarki
+
+            $(document).on("mousemove",function(){
+                if(!musicPlaying){
+                    const music = $("#bgm_menu")[0];
+                    music.currentTime = 0;
+                    music.play();
+                    musicPlaying = true;
+                }
+            })
+
+        })
+    </script>
+</head>
+<body>
+    <div id="titleScreen">
+        <audio loop id="bgm_menu" src="audio/music/magical_cure_love_shot.mp3" preload="auto" type="audio/mpeg"></audio>
+        <img src="images/title.png" alt="title" id="titleLogo"> 
+        <div class="playButtonWrapper">
+            <span class="pulsingRing"></span>
+            <button id="startBtn">Play!♥</button>
+        </div>
+        <audio id="hoverSound" src="audio/UI/hover.mp3" preload="auto"></audio>
+        <audio id="clickSound" src="audio/UI/click.mp3" preload="auto"></audio>
+    </div>
+    
+</body>
+</html>
