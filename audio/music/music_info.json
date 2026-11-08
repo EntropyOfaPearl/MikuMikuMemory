@@ -1,0 +1,83 @@
+{
+    "music" : [
+        {
+            "id" : 0,
+            "file_path" : "magical_cure_love_shot.mp3",
+            "title" : "M@gical Cure Love Shot",
+            "artist" : "Sawtone",
+            "cover" : "covers/magical_cure_love_shot.png"
+        },
+        {
+            "id" : 1,
+            "file_path" : "alien_alien.mp3",
+            "title" : "Alien Alien",
+            "artist" : "NayutalieN",
+            "cover" : "covers/alien_alien.png"
+        },
+        {
+            "id" : 2,
+            "file_path" : "candy_cookie_chocolate.mp3",
+            "title" : "Candy Cookie Chocolate",
+            "artist" : "Halocell",
+            "cover" : "covers/candy_cookie_chocolate.png"
+        },
+        {
+            "id" : 3,
+            "file_path" : "hellfire.mp3",
+            "title" : "Watashi no Koi wa Hellfire",
+            "artist" : "SLAVE.V-V-R",
+            "cover" : "covers/hellfire.png"
+        },
+        {
+            "id" : 4,
+            "file_path" : "lagtrain.mp3",
+            "title" : "Lagtrain",
+            "artist" : "inabakumori, LuminousVale",
+            "cover" : "covers/lagtrain.png"
+        },
+        {
+            "id" : 5,
+            "file_path" : "looping_the_rooms.mp3",
+            "title" : "Looping the rooms",
+            "artist" : "russino, LuminousVale",
+            "cover" : "covers/looping_the_rooms.png"
+        },
+        {
+            "id" : 6,
+            "file_path" : "lukalukanightfever.mp3",
+            "title" : "Luka Luka Night Fever",
+            "artist" : "Samfree",
+            "cover" : "covers/lukalukanightfever.png"
+        },
+        {
+            "id" : 7,
+            "file_path" : "matryoshka.mp3",
+            "title" : "Matryoshka",
+            "artist" : "Hachi",
+            "cover" : "covers/matryoshka.png"
+        },
+        {
+            "id" : 8,
+            "file_path" : "mesmerizer.mp3",
+            "title" : "mesmerizer",
+            "artist" : "32ki, LuminousVale",
+            "cover" : "covers/mesmerizer.png"
+        },
+        {
+            "id" : 9,
+            "file_path" : "monitoring.mp3",
+            "title" : "Monitoring",
+            "artist" : "Deco*27, LuminousVale",
+            "cover" : "covers/monitoring.png"
+        },
+        {
+            "id" : 10,
+            "file_path" : "tetoris.mp3",
+            "title" : "Tetoris",
+            "artist" : "Hiiragi Magnetite",
+            "cover" : "covers/tetoris.png"
+        }
+        
+
+    ]
+}

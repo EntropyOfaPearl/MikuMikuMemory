@@ -38,6 +38,8 @@
     </script>
 </head>
 <body>
+    <audio id="hoverSound" src="audio/UI/hover.mp3" preload="auto"></audio>
+    <audio id="clickSound" src="audio/UI/click.mp3" preload="auto"></audio>
     <div id="titleScreen">
         <audio loop id="bgm_menu" src="audio/music/magical_cure_love_shot.mp3" preload="auto" type="audio/mpeg"></audio>
         <img src="images/title.png" alt="title" id="titleLogo"> 
@@ -45,9 +47,34 @@
             <span class="pulsingRing"></span>
             <button id="startBtn">Play!♥</button>
         </div>
-        <audio id="hoverSound" src="audio/UI/hover.mp3" preload="auto"></audio>
-        <audio id="clickSound" src="audio/UI/click.mp3" preload="auto"></audio>
     </div>
+    <div id="mainMenu">
+        <header id="topBar">
+            <p id="energy">⚡︎ <span id="lifesAmount">null</span></p>
+        </header>
+        <div id="difficultySelect">
+            <img src="images/larp.png" alt="easy" id="larpDifficulty" class="difficultySelect">
+            <img src="images/casual.png" alt="normal" id="casualDifficulty" class="difficultySelect">
+            <img src="images/enjoyer.png" alt="hard" id="enjoyerDifficulty" class="difficultySelect">
+        </div>
     
+        <div id="shop">
+            <div id="payment">
+                <form id="paymentDetails">
+                </form>
+            </div>
+        </div>
+    </div>
+    <div id="game">
+        <main id="gameTable"></main>
+        <aside id="sideBar">
+            <div id="gameInfo">
+                
+            </div>
+            <div id="playlist">
+
+            </div>
+        </aside>
+    </div>
 </body>
 </html>
