@@ -21,7 +21,15 @@
                 const sound = $('#clickSound')[0];
                 sound.currentTime = 0;
                 sound.play();
+                $("#titleScreen").hide();
+                $("#mainMenu").show().css("display","flex");
             });
+
+            $(".headerLogo").eq(0).click(function(){
+                const sound = $('#mikuSound')[0];
+                sound.currentTime = 0;
+                sound.play();
+            })
 
             let musicPlaying = false;//z automatu nie leci :( limitacje przegladarki
 
@@ -34,7 +42,21 @@
                 }
             })
 
-        })
+            //ads switching up <3 gotta make money
+        
+            counter = 0;
+            setInterval(function(){
+                let adLinks = ["https://piapro.net/intl/en.html", "https://games4you.pl/produkt/hatsune-miku-project-mirai-dx-3ds/","https://open.spotify.com/artist/7HwMt9qpoww4yfE3D8886I","https://store.steampowered.com/app/1761390/Hatsune_Miku_Project_DIVA_Mega_Mix/"];
+                for (let i = 1; i <= 4; i++) {
+                    let imageNumber = ((i + counter - 1) % 4) + 1;
+                    $(".adRedirect").eq(i-1).attr("href", adLinks[imageNumber-1]);
+                    $("#ad" + i).attr("src", `images/ads/${imageNumber}.jpg`);
+                }
+                if(counter < 4) counter +=1; else counter = 0;
+     
+            },500);
+        });
+
     </script>
 </head>
 <body>
@@ -48,11 +70,39 @@
             <button id="startBtn">Play!♥</button>
         </div>
     </div>
+
+
+    <audio id="mikuSound" src="audio/feedback/hmm.mp3" preload="auto"></audio>
     <div id="mainMenu">
-        <header id="topBar">
-            <p id="energy">⚡︎ <span id="lifesAmount">null</span></p>
-        </header>
-        <div id="difficultySelect">
+        <div id="topBar">
+            <div id="mikuLogo">
+                <img src="images/site_logo.webp" class="headerLogo" alt="miku!"><img src="images/title.png" class="headerLogo"><!--Add a miku miku sound here!!-->
+            </div>
+
+            <div id="advertisementsDiv">
+                <a href="#" class="adRedirect">
+                    <img src="images/ads/1.jpg" class="advertisement" id="ad1">
+                </a>
+                <a href="#" class="adRedirect">
+                    <img src="images/ads/2.jpg" class="advertisement" id="ad2">
+                </a>
+                <a href="#" class="adRedirect">
+                    <img src="images/ads/3.jpg" class="advertisement" id="ad3">
+                </a>
+                <a href="#" class="adRedirect">
+                    <img src="images/ads/4.jpg" class="advertisement" id="ad4">
+                </a>
+            </div>
+            <div id="currencies">
+                <div class="itemBox">
+                    <p id="energy">⚡︎ <span id="lifesAmount">20</span>/20 <a href="#">+</a></p>
+                </div>
+                <div class="itemBox">
+                    <p id="gems"><span id="gemsAmount">0<a href="#">+</a></p>
+                </div>
+            </div>
+        </div>
+        <div id="difficultySelectDiv">
             <img src="images/larp.png" alt="easy" id="larpDifficulty" class="difficultySelect">
             <img src="images/casual.png" alt="normal" id="casualDifficulty" class="difficultySelect">
             <img src="images/enjoyer.png" alt="hard" id="enjoyerDifficulty" class="difficultySelect">
@@ -76,5 +126,7 @@
             </div>
         </aside>
     </div>
+    
+    <div id="popUpMessage"></div>
 </body>
 </html>
