@@ -3,6 +3,8 @@
     margin: 0;
     padding: 0;
     cursor: url("../images/cursor.png"), auto;
+    font-family: 'Bubblegum Sans';
+
 }
 
 
@@ -291,3 +293,127 @@ x
 .unfocused{
     filter: blur(5px);
 }
+
+.formPretty{
+
+    background: linear-gradient(#ec1e74,#ffaed1);
+    padding:30px;
+    border: #FFF 5px solid;
+    border-radius: 25px;
+    width: 74vw;
+    height: 70vh;
+    overflow: visible;
+    box-sizing: border-box;
+    
+}
+    
+
+
+
+#payment{
+    border-radius: 25px;
+    background-color: #FFF;
+    box-shadow: 0px 0px 0px 15px #fff;
+    border: #ff2282 5px dashed;
+    width: fit-content;
+    height: fit-content;
+    overflow: visible;
+    margin: auto;
+    margin-top:6vh;
+    box-sizing: border-box;
+
+}
+
+#cardDetails{
+    display: none;
+}
+
+
+.formPretty {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+
+    background: linear-gradient(#ff7cb3, #ffaed1);
+    padding: 30px;
+    border: 5px solid #fff;
+    border-radius: 25px;
+
+    width: 74vw;
+    box-sizing: border-box;
+}
+
+.formGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+
+.formInput,
+.inputLong,
+.formSelect {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px;
+    border: 3px solid #ec1e74;
+    border-radius: 8px;
+    background-color: #efe0e8;
+}
+
+.fullWidth {
+    grid-column: span 2;
+}
+
+.formButton {
+    grid-column: span 2;
+    justify-self: center;
+}
+
+
+.formInput::placeholder,
+.inputLong::placeholder {
+    color: #ec1e74;
+}
+
+
+
+.formSelect {
+    color: #ec1e74;
+}
+
+.formSelect:valid {
+    color: #ec1e74;
+}
+
+.formSelect option {
+    color: #713b53;
+    background-color: #d78fad;
+    border: #ec1e74 1px solid;
+}
+
+.formButton{
+    background-color: #ec1e74;
+    border: #efe0e8 3px solid;
+    padding: 5px;
+    border-radius: 20px;
+    width: 80%;
+    box-shadow: 0px 0px 0px 3px #fff;
+    color: #efe0e8;
+    font-size: larger;
+    font-weight: bold;
+    
+}
+
+#backBtn{
+    position: absolute;
+    border: #efe0e8 solid 5px;
+    border-radius: 50%;
+    background-color: #ec1e74;
+    color: #efe0e8;
+    top:13vh;
+    left: 11vw;
+    padding: 1vw;
+    
+}
+

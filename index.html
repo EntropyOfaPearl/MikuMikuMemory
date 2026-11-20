@@ -8,6 +8,7 @@
     <link rel="icon" type="image/x-icon" href="images/site_icon.ico">
     <link rel="stylesheet" href="style/style.css">
     <link href='https://fonts.googleapis.com/css?family=Bubblegum Sans' rel='stylesheet'>
+    <script src="countries.js"></script>
     <script>
         $(function(){
 
@@ -83,11 +84,94 @@
 
             $("#playBtn").click(function(){
                 $("#mainMenu").hide();
-
                 $("#game").show();
             })
 
-            
+            $("#backBtn").click(function(){
+                $("#difficultySelectDiv").show();
+                $("#shop").hide();
+            })
+
+
+            $.each(countries, function(index, val) {
+                $("#country").append(
+                    `<option value="${val}">${val}</option>`
+                );
+            }); //lol didn't have to write 200+ countries by hand <3
+
+
+            $("#paymentDetails").on("submit",function(event){
+                event.preventDefault();
+                let name = $("#name").val().trim();
+                let lastName = $("#lastName").val().trim();
+                let email = $("#email").val().trim();
+                let phone = $("#phone").val().trim();
+                let addressLine1 = $("#address1").val().trim();
+                let addressLine2 = $("#address2").val().trim();
+                let city = $("#city").val().trim();
+                let zipCode = $("#zipCode").val().trim();
+                let country = $("#country").val();
+                let allVals = [name, lastName, email, phone, addressLine1, addressLine2, city, zipCode, country];
+                let mandatory = allVals;
+                mandatory.splice(5,1);//drugi parametr ze ma tylko jedno usunac
+                
+                
+                if (mandatory.some(val => val === "")) { //fajna funkcja sprawdzający czy jakikolwiek element listy spełnia warunek <3
+                    alert("Not all fields have gotten filled!!!"); //zamienić alert na ładniejszą wiadmość jak będzie mi się chciało <//3
+                    return; 
+                }
+                
+                const phoneRegex = /^\+?[0-9\s()-]{7,20}$/;
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                const zipRegex = /^[A-Z0-9][A-Z0-9\s-]{1,10}$/i;
+                if (!phoneRegex.test(phone)) {
+                    alert("Invalid phone number!");
+                    return;
+                }
+
+                if (!emailRegex.test(email)) {
+                    alert("Invalid email!");
+                    return;
+                }
+
+                if (!zipRegex.test(zipCode)) {
+                    alert("Invalid ZIP code!");//zamienić alerty na ładniejsza wiadomość
+                    return;
+                }
+
+                $(this).hide();
+                $("#cardDetails").show().css("display","grid");
+                
+            })
+
+
+            $("#cardDetails").on("submit",function(event){
+                event.preventDefault();
+                let cardNumber = $("#cardNumber").val().trim();
+                let cvv = $("#cvv").val().trim();
+                let expiration = $("#expiration").val().trim();
+
+                const cardRegex = /^\d{13,19}$/;
+                const cvvRegex = /^\d{3,4}$/;
+                const expirationRegex = /^(0[1-9]|1[0-2])\/(\d{2}|\d{4})$/;
+
+                if (!cardRegex.test(cardNumber)) {
+                    alert("Invalid card number!");
+                    return;
+                }
+
+                if (!cvvRegex.test(cvv)) {
+                    alert("Invalid CVV!");
+                    return;
+                }
+
+                if (!expirationRegex.test(expiration)) {
+                    alert("Invalid expiration date!");
+                    return;
+                }
+
+                alert("There was an error processing your payment.");
+            })
 
 
         });
@@ -159,27 +243,69 @@
             <div id="catalouge">
             </div>
             <div id="payment">
-                <form id="paymentDetails">
-                    <label for="name">Name:</label>
-                    <input type="text" id="name" placeholder="Name">
-                    <label for="lastName">Last name:</label>
-                    <input type="text" id="lastName" placeholder="Last Name">
-                    <label for="email">E-mail:</label>
-                    <input type="text" id="email" placeholder="E-mail">
-                    <label for="phone">Phone number:</label>
-                    <input type="text" id="phone" placeholder="Phone">
-                    <label for="name">Address:</label>
-                    <input type="text" id="address1" placeholder="Address line 1">
-                    <input type="text" id="address2" placeholder="Address line 2">
-                    <input type="text" id="city" placeholder="city">
-                    <input type="text" id="zipCode" placeholder="Zip code">
-                    <select id="country"><!--Add items in jquery in case Yugoslavia reunites (I wish)--></select>
-                    <button id="forward">next</button>
+                <button id="backBtn">X</button>
+    
+                <form id="paymentDetails" class="formPretty">
+
+                    
+                    <div class="formGroup">
+                        <input type="text" id="name" placeholder="Name" class="formInput">
+                    </div>
+
+                    <div class="formGroup">
+                        <input type="text" id="lastName" placeholder="Last Name" class="formInput">
+                    </div>
+
+                    <div class="formGroup">
+                        <input type="email" id="email" placeholder="E-mail" class="formInput">
+                    </div>
+
+                    <div class="formGroup">
+                        <input type="tel" id="phone" placeholder="Phone" class="formInput">
+                    </div>
+
+                    <div class="formGroup fullWidth">
+                        <input type="text" id="address1" placeholder="Address line 1" class="inputLong">
+                    </div>
+
+                    <div class="formGroup fullWidth">
+                        <input type="text" id="address2" placeholder="Address line 2" class="inputLong">
+                    </div>
+
+                    <div class="formGroup">
+                        <input type="text" id="city" placeholder="City" class="formInput">
+                    </div>
+
+                    <div class="formGroup">
+                        <input type="text" id="zipCode" placeholder="Zip code" class="formInput">
+                    </div>
+
+                    <div class="formGroup fullWidth">
+                        <select id="country" class="formSelect" required>
+                            <option value="" selected disabled>Select your country</option>
+                        </select>
+                    </div>
+
+                    <button id="forward" class="formButton">Next</button>
+
                 </form>
-                <form id="cardDetails">
-                    <input id="cardNumber" type="number" max="12" placeholder="Card Number">
-                    <input type="text" id="expiration" placeholder="Exp/date">
-                    <input type="text" id="cvv" placeholder="CVV">
+
+
+                <form id="cardDetails" class="formPretty">
+
+                    <div class="formGroup fullWidth">
+                        <input id="cardNumber" maxlength="19" inputmode="numeric" type="number" placeholder="Card Number" class="inputLong">
+                    </div>
+
+                    <div class="formGroup">
+                        <input type="text" id="expiration" placeholder="Exp/date" class="formInput">
+                    </div>
+
+                    <div class="formGroup">
+                        <input type="text" id="cvv" placeholder="CVV" class="formInput">
+                    </div>
+
+                    <button id="pay" class="formButton">Pay</button>
                 </form>
             </div>
         </div>
