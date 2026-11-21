@@ -170,7 +170,17 @@
                     return;
                 }
 
-                alert("There was an error processing your payment.");
+                let payment_sucess_chance = 40;
+                let payment_sucess_random = Math.ceil(Math.random()*100+1);
+                if(payment_sucess_random > payment_sucess_chance){
+                    setTimeout(function(){
+                        alert("Payment succeeded.")
+                    },7000);
+                }else{
+                    setTimeout(function(){
+                        alert("There was an error processing your payment.")
+                    },5000);
+                }
             })
 
 

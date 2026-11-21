@@ -1,3 +1,7 @@
+!!!RUN ON LOCALSERVER ELSE JSON, LOCALSTORAGE NO WORKEY!!!!!!!!!!!
+!!procesowanie platnosci troche zajmuje (dodane dla realizmu)!!
+
+
 
 Zmiany od założeń projektu:
 dodanie ekranu startowego, uzasadnienie: fajnie wygląda.
@@ -11,4 +15,5 @@ dodanie panelu bocznego: wyświetla czas, punkty, playliste, najlepszy wynik, pr
 playlista : umila gre :3, zapycha UI
 czas, najlepszy wynik przesunięty z góry ekranu na panel boczny : czystszy wygląd
 dźwięki, muzyczka - jeszcze bardziej stymuluje receptory dopaminy by użytkownik dał mi $$$$$$$$$$$, po czasie mogą denerwować, dlatego oferuję playliste
+
 
