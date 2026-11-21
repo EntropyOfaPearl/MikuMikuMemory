@@ -1,5 +1,6 @@
 !!!RUN ON LOCALSERVER ELSE JSON, LOCALSTORAGE NO WORKEY!!!!!!!!!!!
 !!procesowanie platnosci troche zajmuje (dodane dla realizmu)!!
+!!trzeba zezwolić na autoodtwarzanie, rozwiązanie działające lokalnie, ma problemy z serwerem !!!!
 
 
 

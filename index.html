@@ -10,7 +10,88 @@
     <link href='https://fonts.googleapis.com/css?family=Bubblegum Sans' rel='stylesheet'>
     <script src="countries.js"></script>
     <script>
+
         $(function(){
+
+            let gemsAmount;
+            if(localStorage.getItem("gems") == null){
+                localStorage.setItem("gems","200");
+            }
+            gemsAmount = parseInt(localStorage.getItem("gems"));
+
+                        
+            let energy;
+            let maximumEnergy = 24;
+            let regenerationTimeMinutes = 25;
+
+            if (localStorage.getItem("lastUpdate") == null) {
+                localStorage.setItem("lastUpdate", Date.now());
+            }
+
+            if (localStorage.getItem("energy") == null) {
+                localStorage.setItem("energy", maximumEnergy.toString());
+            }
+
+            energy = Math.floor(
+                (Date.now() - parseInt(localStorage.getItem("lastUpdate"))) /
+                (regenerationTimeMinutes * 60000)
+            ) + parseInt(localStorage.getItem("energy"));
+
+            if (energy > maximumEnergy) energy = maximumEnergy;
+
+            let elapsed = Date.now() - parseInt(localStorage.getItem("lastUpdate"));
+            let regenerated = Math.floor(elapsed / (regenerationTimeMinutes * 60000));
+
+            localStorage.setItem(
+                "lastUpdate",
+                parseInt(localStorage.getItem("lastUpdate")) +
+                regenerated * (regenerationTimeMinutes * 60000)
+            );
+
+            localStorage.setItem("energy", energy);
+
+            $("#lifesAmount").text(energy);
+            $("#lifesMax").text(maximumEnergy);
+
+            let seconds = Math.floor(
+                (Date.now() - parseInt(localStorage.getItem("lastUpdate"))) / 1000
+            );
+
+            let timeRemainingMinutes;
+            let timeRemainingSeconds;
+            let timeRemaining;
+
+            setInterval(function() {
+                if (energy < maximumEnergy) {
+                    seconds++;
+
+                    if (seconds <= regenerationTimeMinutes * 60) {
+                        timeRemainingMinutes = regenerationTimeMinutes - Math.ceil(seconds / 60);
+                        timeRemainingSeconds = (regenerationTimeMinutes * 60) - seconds - timeRemainingMinutes * 60;
+
+                        timeRemaining = `${String(timeRemainingMinutes).padStart(2, "0")}:${String(timeRemainingSeconds).padStart(2, "0")}`;
+                    } else {
+                        seconds = 0;
+                        energy += 1;
+
+                        localStorage.setItem("energy", energy);
+
+                        localStorage.setItem(
+                            "lastUpdate",
+                            parseInt(localStorage.getItem("lastUpdate")) + regenerationTimeMinutes * 60000
+                        );
+
+                        $("#lifesAmount").text(energy);
+                    }
+                } else {
+                    timeRemaining = "00:00";
+                }
+
+                $("#timeRemaining").text(timeRemaining);
+            }, 1000);
+
+
+
 
             $("#titleLogo").show();
             $('.prettyBtn').on('mouseenter', function() {
@@ -85,6 +166,8 @@
             $("#playBtn").click(function(){
                 $("#mainMenu").hide();
                 $("#game").show();
+                energy -= 1;
+                localStorage.setItem("energy",energy.toString());
             })
 
             $("#backBtn").click(function(){
@@ -172,7 +255,7 @@
 
                 let payment_sucess_chance = 40;
                 let payment_sucess_random = Math.ceil(Math.random()*100+1);
-                if(payment_sucess_random > payment_sucess_chance){
+                if(payment_sucess_random <= payment_sucess_chance){
                     setTimeout(function(){
                         alert("Payment succeeded.")
                     },7000);
@@ -225,7 +308,7 @@
             <!--przycisk ciężko kliknąć, ale działa.-->
             <div id="currencies">
                 <div class="itemBox">
-                    <p id="energy">⚡︎ <span id="lifesAmount">20</span>/20 <button class="storeRedirect">+</button></p>
+                    <p id="energy">⚡︎ <span id="lifesAmount">24</span>/<span id="lifesMax">24</span><span id="timeRemaining">00:00</span><button class="storeRedirect">+</button></p>
                 </div>
                 <div class="itemBox">
                     <p id="gems"><span id="gemsAmount" >0<button class="storeRedirect">+</button></p>
