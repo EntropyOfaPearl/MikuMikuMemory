@@ -213,6 +213,8 @@
                         energy += amount;
                         localStorage.setItem("energy", energy);
                         $("#lifesAmount").text(energy);
+                        $("#moneySound")[0].currentTime = 0;
+                        $("#moneySound")[0].play();
                     }else{
                         alert("Can't buy excessive energy. Use up what you already have.")
                     }
@@ -321,7 +323,9 @@
                         $("#difficultySelectDiv").show();
                         $("#shop").hide();
                         $("#pay").removeAttr("disabled","disabled")//musi byc to samo inaczej wykonuje sie odrazu
-                        $("#back2Shop").removeAttr("disabled","disabled")
+                        $("#back2Shop").removeAttr("disabled","disabled");
+                        $("#moneySound")[0].currentTime = 0;
+                        $("#moneySound")[0].play();
                     },7000);
                 }else{
                     setTimeout(function(){
@@ -426,6 +430,7 @@
                     <img src="images/shop/support_poor_young_adults_please.png">
                 </div>
             </div>
+            <audio id="moneySound" src="audio/UI/moneymoneymoney.mp3" preload="auto"></audio>
             <div id="payment">
                 <button class="backBtn" id="back2shop">X</button>
     

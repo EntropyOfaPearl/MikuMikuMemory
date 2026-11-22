@@ -76,8 +76,382 @@
             "title" : "Tetoris",
             "artist" : "Hiiragi Magnetite",
             "cover" : "covers/tetoris.png"
-        }
+        },
         
+        {
+            "id" : 11,
+            "file_path" : "displayholic.mp3",
+            "title" : "Displayholic",
+            "artist" : "Anything Become Moe",
+            "cover" : "covers/displayholic.png"
+        },
+
+        {
+            "id" : 12,
+            "file_path" : "loverslovers.mp3",
+            "title" : "lovers & lovers",
+            "artist" : "Wowaka",
+            "cover" : "covers/loversandlovers.png"
+        },
+
+        {
+            "id" : 13,
+            "file_path" : "tokyoteddybear.mp3",
+            "title" : "Tokyo Teddy Bear",
+            "artist" : "Neru",
+            "cover" : "covers/ttb.png"
+        },
+
+        {
+            "id" : 14,
+            "file_path" : "abstractabstractnonesense.mp3",
+            "title" : "Abstract Abstract Nonesense",
+            "artist" : "Neru",
+            "cover" : "covers/abstractnonesense.png"
+        },
+
+        {
+            "id" : 15,
+            "file_path" : "lostone.mp3",
+            "title" : "Lost one's weeping",
+            "artist" : "Neru",
+            "cover" : "covers/lostone.png"
+        },
+
+        {
+            "id" : 16,
+            "file_path" : "rollinggirl.mp3",
+            "title" : "rolling girl",
+            "artist" : "wowaka",
+            "cover" : "covers/rollinggirl.png"
+        },
+
+        {
+            "id" : 17,
+            "file_path" : "rollinggirl.mp3",
+            "title" : "rolling girl",
+            "artist" : "wowaka",
+            "cover" : "covers/rollinggirl.png"
+        },
+
+        {
+            "id" : 18,
+            "file_path" : "ghostrule.mp3",
+            "title" : "Ghost Rule",
+            "artist" : "Deco*27",
+            "cover" : "covers/ghostrule.png"
+        },
+
+        {
+            "id" : 19,
+            "file_path" : "Bug.mp3",
+            "title" : "Bug",
+            "artist" : "Karikibear",
+            "cover" : "covers/bug.png"
+        },
+
+        {
+            "id" : 20,
+            "file_path" : "lovetrial.mp3",
+            "title" : "Love Trial",
+            "artist" : "40mP",
+            "cover" : "covers/lovetrial.jpg"
+        },
+
+        {
+            "id" : 21,
+            "file_path" : "pierrot.mp3",
+            "title" : "Karakuri Pierrot",
+            "artist" : "40mP",
+            "cover" : "covers/pierrot.png"
+        },
+
+        {
+            "id" : 22,
+            "file_path" : "rainyboots.mp3",
+            "title" : "Rainy Boots",
+            "artist" : "inabakumori",
+            "cover" : "covers/rainyboots.png"
+        },
+
+        {
+            "id" : 23,
+            "file_path" : "thedissapearanceofhatsunemiku.mp3",
+            "title" : "The Dissapearance Of Hatsune Miku",
+            "artist" : "C@smoP",
+            "cover" : "covers/dissaperance.png"
+        },
+
+        {
+            "id" : 24,
+            "file_path" : "salamander.mp3",
+            "title" : "Salamander",
+            "artist" : "Deco*27",
+            "cover" : "covers/salamander.png"
+        },
+
+        {
+            "id" : 25,
+            "file_path" : "static.mp3",
+            "title" : "Static",
+            "artist" : "FLAVOR FOLEY",
+            "cover" : "covers/static.png"
+        },
+
+        {
+            "id" : 26,
+            "file_path" : "kokoro.mp3",
+            "title" : "kokoro",
+            "artist" : "Toraboruta-P,",
+            "cover" : "covers/kokoro.png"
+        },
+
+        {
+            "id" : 27,
+            "file_path" : "romeo.mp3",
+            "title" : "Romeo and Cantarella",
+            "artist" : "Kurousa-P",
+            "cover" : "covers/cantarella.png"
+        },
+
+        {
+            "id" : 28,
+            "file_path" : "senbonzakura.mp3",
+            "title" : "Senbonzakura",
+            "artist" : "Kurousa-P",
+            "cover" : "covers/senbonzakura.png"
+        },
+
+        {
+            "id" : 29,
+            "file_path" : "droppopcandy.mp3",
+            "title" : "Drop Pop Candy",
+            "artist" : "Reol",
+            "cover" : "covers/droppopcandy.png"
+        },
+
+        {
+            "id" : 30,
+            "file_path" : "unhappyrefrain.mp3",
+            "title" : "Unhappy Refrain",
+            "artist" : "Wowaka",
+            "cover" : "covers/unhappyrefrain.png"
+        },
+
+        {
+            "id" : 31,
+            "file_path" : "worldsend.mp3",
+            "title" : "World's end dancehall",
+            "artist" : "Wowaka",
+            "cover" : "covers/worldsend.png"
+        },
+
+        {
+            "id" : 32,
+            "file_path" : "worldismine.mp3",
+            "title" : "World is mine",
+            "artist" : "Supercell",
+            "cover" : "covers/worldismine.png"
+        },
+
+        {
+            "id" : 33,
+            "file_path" : "minimumrage.mp3",
+            "title" : "MINIMUM RAGE",
+            "artist" : "MonocroMenace",
+            "cover" : "covers/minimumrage.png"
+        },
+
+        {
+            "id" : 34,
+            "file_path" : "jiterbug.mp3",
+            "title" : "jiterbug",
+            "artist" : "Kuriyama Yuri",
+            "cover" : "covers/jiterbug.png"
+        },
+
+        {
+            "id" : 35,
+            "file_path" : "kontonboogie.mp3",
+            "title" : "kontonboogie",
+            "artist" : "Jon-Yakitory",
+            "cover" : "covers/kontonboogie.png"
+        },
+
+        {
+            "id" : 36,
+            "file_path" : "happysynthesizer.mp3",
+            "title" : "Happy Synthesizer",
+            "artist" : "EasyPop",
+            "cover" : "covers/happysynthesizer.png"
+        },
+
+        {
+            "id" : 37,
+            "file_path" : "flopera.mp3",
+            "title" : "FLOP ERA",
+            "artist" : "ePiaeon",
+            "cover" : "covers/flopera.gif"
+        },
+
+        {
+            "id" : 38,
+            "file_path" : "executionclap.mp3",
+            "title" : "Execution Clap",
+            "artist" : "Trap Chick",
+            "cover" : "covers/executionclap.gif"
+        },
+
+        {
+            "id" : 39,
+            "file_path" : "popipo.mp3",
+            "title" : "popipo",
+            "artist" : "LamazeP",
+            "cover" : "covers/popipo.png"
+        },
+
+        {
+            "id" : 40,
+            "file_path" : "telepathy.mp3",
+            "title" : "Telepathy",
+            "artist" : "Deco*27",
+            "cover" : "covers/telepathy.gif"
+        },
+
+        {
+            "id" : 41,
+            "file_path" : "kasaneterritory.mp3",
+            "title" : "Kasane Territory",
+            "artist" : "Teto Kasane",
+            "cover" : "covers/kasaneterritory.png"
+        },
+
+        {
+            "id" : 42,
+            "file_path" : "illmikumikuyou.mp3",
+            "title" : "Miku Miku ni shite ageru",
+            "artist" : "ika_mo",
+            "cover" : "covers/illmikumikuyou.png"
+        },
+
+        {
+            "id" : 43,
+            "file_path" : "icantwait.mp3",
+            "title" : "I can't wait",
+            "artist" : "d0ct0mmie",
+            "cover" : "covers/icantwait.png"
+        },
+
+        {
+            "id" : 44,
+            "file_path" : "whateverwhateverwhatever.mp3",
+            "title" : "Whatever whatever whatever",
+            "artist" : "Neru",
+            "cover" : "covers/whateverwhateverwhatever.png"
+        },
+
+        {
+            "id" : 45,
+            "file_path" : "kyukurarin.mp3",
+            "title" : "Kyu-kurarin",
+            "artist" : "iyowa",
+            "cover" : "covers/kukurarin.png"
+        },
+
+        {
+            "id" : 46,
+            "file_path" : "retrynow.mp3",
+            "title" : "retry now",
+            "artist" : "NAKISO",
+            "cover" : "covers/retrynow.gif"
+        },
+
+        {
+            "id" : 47,
+            "file_path" : "roki.mp3",
+            "title" : "ROKI",
+            "artist" : "MikitioP",
+            "cover" : "covers/roki.png"
+        },
+
+        {
+            "id" : 48,
+            "file_path" : "tispohm.mp3",
+            "title" : "The intense singing passion of Hatsune Miku",
+            "artist" : "C@smoP",
+            "cover" : "covers/intensevoice.png"
+        },
+
+        {
+            "id" : 49,
+            "file_path" : "vampire.mp3",
+            "title" : "Vampire",
+            "artist" : "Deco*27",
+            "cover" : "covers/vampire.png"
+        },
+
+        {
+            "id" : 46,
+            "file_path" : "triplebaka.mp3",
+            "title" : "Triple Baka",
+            "artist" : "LamazeP",
+            "cover" : "covers/triplebaka.png"
+        },
+
+        {
+            "id" : 47,
+            "file_path" : "kajiuninaritai.mp3",
+            "title" : "I want to be a monster",
+            "artist" : "Sakyuzo",
+            "cover" : "covers/kajiuninaritai.png"
+        },
+
+        {
+            "id" : 48,
+            "file_path" : "cherrypop.mp3",
+            "title" : "Cherry Pop!",
+            "artist" : "Deco*27",
+            "cover" : "covers/cherrypop.png"
+        },
+
+        {
+            "id" : 49,
+            "file_path" : "catlife.mp3",
+            "title" : "Ah, it's a wonderfull cat life",
+            "artist" : "Nem",
+            "cover" : "covers/catlife.png"
+        },
+
+        {
+            "id" : 50,
+            "file_path" : "sixtrillionyears.mp3",
+            "title" : "Six Trillion Years and Overnight Story",
+            "artist" : "kemu",
+            "cover" : "covers/sixtrillionyears.png"
+        },
+
+        {
+            "id" : 51,
+            "file_path" : "donuthole.mp3",
+            "title" : "Donut Hole",
+            "artist" : "Hachi",
+            "cover" : "covers/donuthole.png"
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     ]
 }
