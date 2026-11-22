@@ -1,0 +1,46 @@
+{
+    "inventory" : [
+        {
+            "type" : "gems",
+            "price" : 4.99,
+            "amount" : 50,
+            "currency" : "$",
+            "image" : "50gems.png"
+        },
+        {
+            "type" : "gems",
+            "price" : 9.99,
+            "amount" : 200,
+            "currency" : "$",
+            "image" : "200gems.png"
+        },
+        {
+            "type" : "gems",
+            "price" : 24.99,
+            "amount" : 1000,
+            "currency" : "$",
+            "image" : "1000gems.png"
+        },
+        {
+            "type": "energy",
+            "price" : 100,
+            "amount" : 5,
+            "currency" : "gems",
+            "image" : "5energy.png"
+        },
+        {
+            "type": "energy",
+            "price" : 175,
+            "amount" : 10,
+            "currency" : "gems",
+            "image" : "10energy.png"
+        },
+        {
+            "type": "energy",
+            "price" : 567,
+            "amount" : 24,
+            "currency" : "gems",
+            "image" : "24energy.png"
+        }
+    ]
+}

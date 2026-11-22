@@ -18,6 +18,7 @@
                 localStorage.setItem("gems","200");
             }
             gemsAmount = parseInt(localStorage.getItem("gems"));
+            $("#gemsAmount").text(gemsAmount)
 
                         
             let energy;
@@ -84,7 +85,7 @@
                         $("#lifesAmount").text(energy);
                     }
                 } else {
-                    timeRemaining = "00:00";
+                    timeRemaining = "";
                 }
 
                 $("#timeRemaining").text(timeRemaining);
@@ -156,13 +157,6 @@
                 
             });
 
-            $(".storeRedirect").click(function(){
-                $("#difficultySelectDiv").hide();
-                $("#shop").show();
-
-            })
-
-
             $("#playBtn").click(function(){
                 $("#mainMenu").hide();
                 $("#game").show();
@@ -170,12 +164,38 @@
                 localStorage.setItem("energy",energy.toString());
             })
 
-            $("#backBtn").click(function(){
+
+            $(".storeRedirect").click(function(){
+                $("#difficultySelectDiv").hide();
+                $("#shop").show();
+
+            })
+
+            $.getJSON("product_list.json", function(data) {
+
+                $.each(data.inventory, function(index, product) {
+                    if(index % 3 == 0){
+                        $("#offers").append("<tr></tr>")
+                    } //given up on grid template, a table it is.
+                    $("#offers tr").eq(Math.floor(index / 3)).append(`<td><div class="offer"></div></td>`);
+                    $(".offer").eq(index).append(`<img src="images/shop/${product.image}">`);
+                    $(".offer").eq(index).append(`<div class="productInfo"></div>`);
+                    $(".productInfo").eq(index).append(`<p>${product.amount} ${product.type}</p>`);
+                    $(".productInfo").eq(index).append(`<p>${product.price} ${product.currency}</p>`)
+                    $(".productInfo").eq(index).append(`<button class="prettyBtn" data-amount="${product.amount}" data-type="${product.type}" data-price="${product.pri}" data-currency="${(product.currency == "$") ? "$":"g"}">buy</button>`)
+                    
+
+                });
+
+            });
+
+
+            $(".backBtn").click(function(){
                 $("#difficultySelectDiv").show();
                 $("#shop").hide();
             })
 
-
+        
             $.each(countries, function(index, val) {
                 $("#country").append(
                     `<option value="${val}">${val}</option>`
@@ -253,7 +273,7 @@
                     return;
                 }
 
-                let payment_sucess_chance = 40;
+                let payment_sucess_chance = Math.ceil(Math.random()*100+10); //mialo byc stale ale zmieniłam zdanie (tak jest śmieszniej i bardziej realistycznie)
                 let payment_sucess_random = Math.ceil(Math.random()*100+1);
                 if(payment_sucess_random <= payment_sucess_chance){
                     setTimeout(function(){
@@ -311,7 +331,7 @@
                     <p id="energy">⚡︎ <span id="lifesAmount">24</span>/<span id="lifesMax">24</span><span id="timeRemaining">00:00</span><button class="storeRedirect">+</button></p>
                 </div>
                 <div class="itemBox">
-                    <p id="gems"><span id="gemsAmount" >0<button class="storeRedirect">+</button></p>
+                    <p id="gems"><span id="gemsAmount" >0</span><button class="storeRedirect">+</button></p>
                 </div>
             </div>
         </div>
@@ -334,9 +354,29 @@
     
         <div id="shop">
             <div id="catalouge">
+                <button class="backBtn" id="shopExit">X</button>
+                <div id="inventoryWrapper">
+                    <div id="inventory">
+                        <table id="offers">
+                            <!--=======================!!TEMPLATEE!!!!===================
+                            <div class="offer">
+                                <img src="images/shop/50gems.png">
+                                <div class="productInfo">
+                                    <p class="productName">50 gems</p>
+                                    <p class="price">99999999.99$</p>
+                                    <button class="prettyBtn" data-product="" data-price="" data-currency="">buy</button>
+                                </div>
+                            </div>
+                        -->
+                        </table>
+                    </div>
+                </div>
+                <div  id="brokeYoungLady">
+                    <img src="images/shop/support_poor_young_adults_please.png">
+                </div>
             </div>
             <div id="payment">
-                <button id="backBtn">X</button>
+                <button class="backBtn" id="backPayment">X</button>
     
                 <form id="paymentDetails" class="formPretty">
 
@@ -416,6 +456,6 @@
         </aside>
     </div>
     
-    <div id="popUpMessage"></div>
+    <div id="popUpMessage"></div> <!--I ain't coding that anytime soon <//3-->
 </body>
 </html>

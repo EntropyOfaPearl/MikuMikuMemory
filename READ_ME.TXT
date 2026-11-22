@@ -2,7 +2,7 @@
 !!procesowanie platnosci troche zajmuje (dodane dla realizmu)!!
 !!trzeba zezwolić na autoodtwarzanie, rozwiązanie działające lokalnie, ma problemy z serwerem !!!!
 
-
+to miał być 1 plik czy pare? lepiej by chyba było na paru ale na jednym  było śmieszniej.
 
 Zmiany od założeń projektu:
 dodanie ekranu startowego, uzasadnienie: fajnie wygląda.

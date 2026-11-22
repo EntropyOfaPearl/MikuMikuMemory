@@ -308,6 +308,7 @@ adnotacja @keyframes służy do
 
 
 #payment{
+    display: none;
     border-radius: 25px;
     background-color: #FFF;
     box-shadow: 0px 0px 0px 15px #fff;
@@ -403,16 +404,24 @@ adnotacja @keyframes służy do
 }
 
 
-#backBtn{
+.backBtn{
     position: absolute;
     border: #efe0e8 solid 5px;
     border-radius: 50%;
     background-color: #ec1e74;
     color: #efe0e8;
-    top:13vh;
-    left: 11vw;
     padding: 1vw;
     
+}
+
+#backPayment{
+    top:13vh;
+    left: 11vw;
+}
+
+#shopExit{
+    top:12vh;
+    left: 3.5vw;
 }
 
 #timeRemaining{
@@ -420,3 +429,97 @@ adnotacja @keyframes służy do
     opacity: 0.5;
     padding-left:15px;
 }
+
+
+#brokeYoungLady{
+    width: 33vw;
+
+}
+
+#brokeYoungLady img{
+    width: 27vw;
+    position: absolute;
+    bottom: 0;
+    right: 2.5vw;
+
+}
+
+#inventory{
+    width: 68vw;
+    height: 80vh;
+    background: linear-gradient(#ff7cb3, #ffaed1);
+    border: 5px solid #fff;
+    border-radius: 25px;
+    box-sizing: border-box;
+
+}
+
+
+#inventoryWrapper{
+    border-radius: 25px;
+    background-color: #FFF;
+    box-shadow: 0px 0px 0px 15px #fff;
+    border: #ff2282 5px dashed;
+    width: fit-content;
+    height: 20;
+    overflow: visible;
+    box-sizing: border-box;
+    margin-left: 5vw;
+    margin-top: 5vh;
+}
+
+#offers td{
+    padding: 20px 5px;
+}
+
+#offers{
+    margin: auto;
+    padding-top:30px;
+}
+
+.offer {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    height: 20vh;
+    background-color: #a4fff6;
+    width: fit-content;
+    padding:20px 25px;
+    border-radius: 25px;
+    border: #71c8bf solid 10px;
+
+}
+
+.offer img {
+    height: 120px;
+    width: auto;
+    object-fit: contain;
+}
+
+.offer button{
+    width:fit-content;
+    height: fit-content;
+    font-size: medium;
+    padding: 2px 40px;
+    margin-top: 10px;
+    border-width: 3px;
+    background: linear-gradient(#ff2282,#d78fad);
+
+}
+
+.offer button:hover{
+    width:fit-content;
+    height: fit-content;
+    font-size: medium;
+    padding: 2px 40px;
+    border-width: 3px;
+
+}
+
+.offer p{
+    font-size: large;
+    padding:10px;
+    letter-spacing: 2px;
+    color: #ec1e74;
+}
+    
