@@ -168,6 +168,8 @@
             $(".storeRedirect").click(function(){
                 $("#difficultySelectDiv").hide();
                 $("#shop").show();
+                $("#payment").hide();
+                $("#catalouge").show();
 
             })
 
@@ -182,20 +184,53 @@
                     $(".offer").eq(index).append(`<div class="productInfo"></div>`);
                     $(".productInfo").eq(index).append(`<p>${product.amount} ${product.type}</p>`);
                     $(".productInfo").eq(index).append(`<p>${product.price} ${product.currency}</p>`)
-                    $(".productInfo").eq(index).append(`<button class="prettyBtn" data-amount="${product.amount}" data-type="${product.type}" data-price="${product.pri}" data-currency="${(product.currency == "$") ? "$":"g"}">buy</button>`)
+                    $(".productInfo").eq(index).append(`<button class="prettyBtn buyBtn" data-amount="${product.amount}" data-type="${product.type}" data-price="${product.price}" data-currency="${(product.currency == "$") ? "$":"g"}">buy</button>`)
                     
 
                 });
 
             });
 
+            //zmienne dla zakupu 
+            let type = $(this).data("type");
+            let amount = parseInt($(this).data("amount"));
+            let price = parseInt($(this).data("price"));
+            let currencies = $(this).data("currency");
 
-            $(".backBtn").click(function(){
+            $(document).on("click", ".buyBtn", function(){//normalna składnia nie działała, musi być event delegation
+                type = $(this).data("type");
+                amount = parseInt($(this).data("amount"));
+                price = parseInt($(this).data("price"));
+                currencies = $(this).data("currency"); 
+                if(type == "gems"){
+                    $("#payment").show();
+                    $("#catalouge").hide();
+                }else{
+                    if(energy + amount <=24){
+                        gemsAmount -= price;
+                        localStorage.setItem("gems",gemsAmount);
+                        $("#gemsAmount").text(gemsAmount);
+                        energy += amount;
+                        localStorage.setItem("energy", energy);
+                        $("#lifesAmount").text(energy);
+                    }else{
+                        alert("Can't buy excessive energy. Use up what you already have.")
+                    }
+                }
+
+            });
+
+            $("#shopExit").click(function(){
                 $("#difficultySelectDiv").show();
                 $("#shop").hide();
             })
 
-        
+            $("#back2shop").click(function(){
+                $("#payment").hide();
+                $("#catalouge").show();
+            });
+
+
             $.each(countries, function(index, val) {
                 $("#country").append(
                     `<option value="${val}">${val}</option>`
@@ -272,19 +307,35 @@
                     alert("Invalid expiration date!");
                     return;
                 }
-
+                
                 let payment_sucess_chance = Math.ceil(Math.random()*100+10); //mialo byc stale ale zmieniłam zdanie (tak jest śmieszniej i bardziej realistycznie)
                 let payment_sucess_random = Math.ceil(Math.random()*100+1);
+                $("#pay").attr("disabled","disabled")
+                $("#back2Shop").attr("disabled","disabled")
                 if(payment_sucess_random <= payment_sucess_chance){
                     setTimeout(function(){
-                        alert("Payment succeeded.")
+                        gemsAmount += amount;
+                        localStorage.setItem("gems",gemsAmount)
+                        $("#gemsAmount").text(gemsAmount);
+                        alert("Payment succeeded.");
+                        $("#difficultySelectDiv").show();
+                        $("#shop").hide();
+                        $("#pay").removeAttr("disabled","disabled")//musi byc to samo inaczej wykonuje sie odrazu
+                        $("#back2Shop").removeAttr("disabled","disabled")
                     },7000);
                 }else{
                     setTimeout(function(){
-                        alert("There was an error processing your payment.")
+                        alert("There was an error processing your payment.");
+                        $("#difficultySelectDiv").show();
+                        $("#shop").hide();
+                        $("#pay").removeAttr("disabled","disabled")
+                        $("#back2Shop").removeAttr("disabled","disabled")
                     },5000);
                 }
-            })
+                
+                
+            });
+
 
 
         });
@@ -364,7 +415,7 @@
                                 <div class="productInfo">
                                     <p class="productName">50 gems</p>
                                     <p class="price">99999999.99$</p>
-                                    <button class="prettyBtn" data-product="" data-price="" data-currency="">buy</button>
+                                    <button class="prettyBtn buyBtn" data-product="" data-price="" data-currency="">buy</button>
                                 </div>
                             </div>
                         -->
@@ -376,7 +427,7 @@
                 </div>
             </div>
             <div id="payment">
-                <button class="backBtn" id="backPayment">X</button>
+                <button class="backBtn" id="back2shop">X</button>
     
                 <form id="paymentDetails" class="formPretty">
 
