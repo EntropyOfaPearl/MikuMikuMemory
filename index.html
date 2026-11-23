@@ -193,7 +193,7 @@
             $.getJSON("audio/music/music_info.json", function(data) {
 
                 $.each(data.music, function(index, track) {
-                    $("#trackSelect").append(`<div class="track" data-index="" data-index = "${track.index}"></div>`);
+                    $("#trackSelect").append(`<div class="track" data-index="${track.id}"></div>`);
                     $(".track").eq(index).append(`<img src="audio/music/${track.cover}" class="previewCover">`);
                     $(".track").eq(index).append(`<div class="previewInfo"></div>`);
                     $(".previewInfo").eq(index).append(`<span class="previewTitle">${track.title}</span>`);
@@ -216,7 +216,36 @@
             audio.addEventListener("ended", function() {
                 $("#albumCover").removeClass("spinning");
             });
-            
+
+            $(document).on("mouseenter", ".track", function() {
+                const sound = $("#hoverSound")[0];
+                sound.currentTime = 0;
+                sound.play();
+            });
+
+            $(document).on("click", ".track", function() {
+                const sound = $("#clickSound")[0];
+                sound.currentTime = 0;
+                sound.play();
+                let songID = parseInt($(this).data("index"));
+                $.getJSON("audio/music/music_info.json", function(data) {
+                    let title = data.music[songID].title;
+                    let artist = data.music[songID].artist;
+                    let filePath = data.music[songID].file_path;
+                    let cover = data.music[songID].cover;
+
+                    let audio = $("#songControls")[0];
+
+                    audio.src = `/audio/music/${filePath}`;
+                    audio.currentTime = 0;
+                    audio.play();
+
+                    $("#albumCover").attr("src", `/audio/music/${cover}`);
+                    $("#title").text(title);
+                    $("#artist").text(artist);
+
+                });
+            });
 
 
             $(".storeRedirect").click(function(){

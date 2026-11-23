@@ -120,10 +120,10 @@
 
         {
             "id" : 16,
-            "file_path" : "rollinggirl.mp3",
-            "title" : "rolling girl",
-            "artist" : "wowaka",
-            "cover" : "covers/rollinggirl.png"
+            "file_path" : "romeo.mp3",
+            "title" : "Romeo and Cinderella",
+            "artist" : "Doriko",
+            "cover" : "covers/cinderella.jpg"
         },
         
         {
@@ -208,8 +208,8 @@
 
         {
             "id" : 27,
-            "file_path" : "romeo.mp3",
-            "title" : "Romeo and Cantarella",
+            "file_path" : "cantarella.mp3",
+            "title" : "Cantarella",
             "artist" : "Kurousa-P",
             "cover" : "covers/cantarella.png"
         },
