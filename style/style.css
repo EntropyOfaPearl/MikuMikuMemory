@@ -523,3 +523,139 @@ adnotacja @keyframes służy do
     color: #ec1e74;
 }
     
+
+
+#game{
+    background: url("../images/gameBG.jpg");
+    background-repeat: no-repeat;
+    background-size:cover;
+    display: grid;
+    height: 100vh;
+    grid-template-columns: 80vw 20vw;
+    grid-template-areas: "gameTable sideBar";
+}
+
+#gameTable{
+    grid-area: gameTable;
+}
+
+#sideBar {
+    grid-area: sideBar;
+    background-color: #ec1e74;
+    border: solid 10px #6e2b48;
+
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 0;
+    box-sizing: border-box;
+}
+
+#gameInfo {
+    height: 22vh;
+    width: 100%;
+    flex-shrink: 0;
+}
+
+#playlist {
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+#trackInfo {
+    width: 100%;
+    height: fit-content;
+    flex-shrink: 0;
+    border-top: 5px #6e2b48 solid;
+    border-bottom: 5px #47182c solid;
+}
+
+#trackSelect {
+    width: 100%;
+    flex: 1;
+    min-height: 0;
+    background-color: #47182c;
+    overflow-y: auto;
+}
+
+#trackInfo img{
+    width: 50%;
+    margin: 15px auto;
+    display: flex;
+    border-radius: 50%;
+    border: #47182c 5px solid;
+    box-shadow: 5px 5px 5px #6e2b48;
+}
+
+#title{
+    color: #47182c;
+    padding: 5px 15px;
+    font-size: larger;
+    font-weight: bold;
+}
+
+#artist{
+    color: #6e2b48;
+    padding: 5px 15px;
+    font-size: medium;
+    font-style: italic;
+}
+
+#songControls {
+    width: 100%;
+    max-width: 400px;
+    height: 45px;
+    outline: none;
+    display: block;
+    margin: 15px 0px 0px 0px;
+}
+
+
+
+.track {
+    height: 50px;
+    background-color: #6e2b48;
+    width: 95%;
+    margin: 5px auto 0px auto;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.track:hover{
+    background-color: #d78fad;
+}
+
+.previewCover {
+    height: 40px;
+    margin: 5px 10px;
+    width: 40px;
+    border-radius: 4px;
+    flex-shrink: 0;
+}
+
+.previewInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.previewTitle {
+    font-size: 14px;
+    font-weight: bold;
+    color: #320f1e;
+
+}
+
+.previewArtist {
+    font-size: 11px;
+    opacity: 0.75;  
+    color: #47182c;
+}
+
+#gameInfo {
+    height: 22vh;
+    width: 100%;
+}

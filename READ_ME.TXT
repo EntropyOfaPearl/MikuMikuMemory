@@ -5,6 +5,7 @@
 to miał być 1 plik czy pare? lepiej by chyba było na paru ale na jednym  było śmieszniej.
 
 Zmiany od założeń projektu:
+poziomy trudności zamiast w selectcie są w png bo ładniej wyglądają 😊😊
 dodanie ekranu startowego, uzasadnienie: fajnie wygląda.
 zmiana systemu punktacji z liczby ruchów, na punkty * czas/ ruchy
 punkty są liczone po parze odkrytej, po odkryciu 2 par w przeciągu 15 sekund włącza się mnożnik na 15 sekund, dający podwójne punkty za parę

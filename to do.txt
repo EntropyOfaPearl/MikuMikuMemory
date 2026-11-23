@@ -7,3 +7,6 @@ po tym (bardzo mi sie nie chce):
 ładne pop upy zamiast alertów (NIE CHCE MI SIEEEEEEEEEEEEEEEEEEEEEEEEE TO JEST CSS I JEDNA FUNKCJAAAA <//3)
 zablokowanie harda za mikrotranzakcja (local storage + css AKA NIE CHCE MI SIE TO TAKA DROBNOSTKAAAAAAAAAAAAAAAAAAAAA)
 sortowanie playlisty po tytule (nie chce mi sie)
+usunąć komentarze pozostawione w frustracji
+wyczyścic kod 
+dopchać rozmiar do 1GB

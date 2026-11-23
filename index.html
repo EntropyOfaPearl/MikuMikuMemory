@@ -10,8 +10,10 @@
     <link href='https://fonts.googleapis.com/css?family=Bubblegum Sans' rel='stylesheet'>
     <script src="countries.js"></script>
     <script>
-
+        //I hope the person reading this is hungry because the mess below sure is a whole lot of spagetti!!
+        //proof my code is human made? just look at it. I am the opposite of AI, I am geniuene stupidity
         $(function(){
+
 
             let gemsAmount;
             if(localStorage.getItem("gems") == null){
@@ -140,9 +142,8 @@
      
             },500);
 
-
-            let selectedDifficulty;
-
+            //soon this game will be like half life and will require coconut.png to not crash 
+            $("#playBtn").attr("disabled","disabled")//LOOKS DUMB BUT OTHERWISE REFUSES TO WORK (god knows why, because neither me nor does chat GPT know and sure as hell i ain't paying for claude or any ai <//3 
             $(".difficultySelect").click(function(){
                 selectedDifficulty = $(this).data("difficulty");
                 let soundEffect = $(`#${selectedDifficulty}Sound`)[0];
@@ -154,6 +155,7 @@
                 let everythingElse = $(".difficultySelect").not(this);
                 everythingElse.addClass("unfocused");
                 everythingElse.removeClass("difficultySelected");
+                $("#playBtn").removeAttr("disabled")
                 
             });
 
@@ -163,6 +165,28 @@
                 energy -= 1;
                 localStorage.setItem("energy",energy.toString());
             })
+
+           /* <div class="track" data-index="">
+                        <img src="audio/music/covers/cherrypop.png" class="previewCover">
+
+                        <div class="previewInfo">
+                            <span class="previewTitle">cherrypop</span>
+                            <span class="previewArtist">Deco*27</span>
+                        </div>
+                    </div*/
+            $.getJSON("audio/music/music_info.json", function(data) {
+
+                $.each(data.music, function(index, track) {
+                    $("#trackSelect").append(`<div class="track" data-index="" data-index = "${track.index}"></div>`);
+                    $(".track").eq(index).append(`<img src="audio/music/${track.cover}" class="previewCover">`);
+                    $(".track").eq(index).append(`<div class="previewInfo"></div>`);
+                    $(".previewInfo").eq(index).append(`<span class="previewTitle">${track.title}</span>`);
+                    $(".previewArtist").eq(index).append(`<span class="previewArtist">${track.artist}</span>`);
+
+                });
+
+            });
+            
 
 
             $(".storeRedirect").click(function(){
@@ -401,7 +425,7 @@
                 <img src="images/casual.png" alt="normal" data-difficulty="medium" class="difficultySelect">
                 <img src="images/enjoyer.png" alt="hard" data-difficulty="hard" class="difficultySelect">
 
-                <button id="playBtn" class="prettyBtn">Play!♥</button>
+                <button id="playBtn" class="prettyBtn" disabled>Play!♥</button>
             </div>
 
         </div>
@@ -504,10 +528,31 @@
         <main id="gameTable"></main>
         <aside id="sideBar">
             <div id="gameInfo">
-                
+                <div id="timer">
+                    <p><span id="timerSpan"></span></p>
+                </div>
+                <p>Moves: <span id="moves"></span></p>
+                <p>Points: <span id="moves"></span></p>
+                <p>Highscore: <span id="moves"></span></p>
             </div>
             <div id="playlist">
+                <div id ="trackInfo">
+                    <img src="audio/music/covers/placeholder.jpg" alt="album cover">
+                    <span id="title">Nothing is playing...</span>
+                    <span id="artist"></span>
+                    <audio controls id="songControls"></audio>
+                </div>
+                <div id="trackSelect">
+                    <!-- TEMPLATE -->
+                    <!--<div class="track" data-index="">
+                        <img src="audio/music/covers/cherrypop.png" class="previewCover">
 
+                        <div class="previewInfo">
+                            <span class="previewTitle">cherrypop</span>
+                            <span class="previewArtist">Deco*27</span>
+                        </div>
+                    </div>-->
+                </div>
             </div>
         </aside>
     </div>

@@ -125,7 +125,7 @@
             "artist" : "wowaka",
             "cover" : "covers/rollinggirl.png"
         },
-
+        
         {
             "id" : 17,
             "file_path" : "rollinggirl.mp3",
@@ -291,7 +291,7 @@
             "file_path" : "flopera.mp3",
             "title" : "FLOP ERA",
             "artist" : "ePiaeon",
-            "cover" : "covers/flopera.gif"
+            "cover" : "covers/flopera.png"
         },
 
         {
@@ -355,7 +355,7 @@
             "file_path" : "kyukurarin.mp3",
             "title" : "Kyu-kurarin",
             "artist" : "iyowa",
-            "cover" : "covers/kukurarin.png"
+            "cover" : "covers/kyukurarin.png"
         },
 
         {
@@ -436,20 +436,71 @@
             "title" : "Donut Hole",
             "artist" : "Hachi",
             "cover" : "covers/donuthole.png"
+        },
+
+        {
+            "id" : 52,
+            "file_path" : "teto31st.mp3",
+            "title" : "Teto the 31st 🎉🎃🧟",
+            "artist" : "Halocell",
+            "cover" : "covers/teto31st.png"
+        },
+
+        {
+            "id" : 53,
+            "file_path" : "adachirei.mp3",
+            "title" : "Adachi Rei",
+            "artist" : "ByTheWay Sato",
+            "cover" : "covers/adachirei.png"
+        },
+
+        {
+            "id" : 54,
+            "file_path" : "justbefriends.mp3",
+            "title" : "Just be Friends",
+            "artist" : "Dixie Flatline",
+            "cover" : "covers/justbefriends.png"
+        },
+
+        {
+            "id" : 55,
+            "file_path" : "nyan.mp3",
+            "title" : "Nyan",
+            "artist" : "MARETU",
+            "cover" : "covers/nyan.png"
+        },
+
+        {
+            "id" : 56,
+            "file_path" : "holedwelling.mp3",
+            "title" : "Hole dwelling",
+            "artist" : "Kikuo",
+            "cover" : "covers/holedwelling.png"
+        },
+
+        {
+            "id" : 57,
+            "file_path" : "exorcist.mp3",
+            "title" : "Exorcist",
+            "artist" : "Something's off with my vocaloid",
+            "cover" : "covers/exorcist.gif"
+        },
+
+        {
+            "id" : 58,
+            "file_path" : "danceofcorpses.mp3",
+            "title" : "Shikabane no Odori",
+            "artist" : "Kikuo",
+            "cover" : "covers/danceofcorpses.png"
+        },
+
+        {
+            "id" : 59,
+            "file_path" : "solitaryenvy.mp3",
+            "title" : "Solitary Envy",
+            "artist" : "koyori",
+            "cover" : "covers/solitaryenvy.png"
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
