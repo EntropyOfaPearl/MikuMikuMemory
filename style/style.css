@@ -580,8 +580,9 @@ adnotacja @keyframes służy do
     overflow-y: auto;
 }
 
-#trackInfo img{
-    width: 50%;
+#albumCover{
+    width: 150px;
+    height: 150px;
     margin: 15px auto;
     display: flex;
     border-radius: 50%;
@@ -659,3 +660,13 @@ adnotacja @keyframes służy do
     height: 22vh;
     width: 100%;
 }
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.spinning {
+    animation: spin 5s linear infinite;
+}
+

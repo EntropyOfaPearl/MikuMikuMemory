@@ -164,16 +164,32 @@
                 $("#game").show();
                 energy -= 1;
                 localStorage.setItem("energy",energy.toString());
+                $("#bgm_menu")[0].pause();
+                $.getJSON("audio/music/music_info.json", function(data) {
+
+                    let bound = data.music.length;
+                    let random_song = Math.floor(Math.random() * bound);
+
+                    let title = data.music[random_song].title;
+                    let artist = data.music[random_song].artist;
+                    let filePath = data.music[random_song].file_path;
+                    let cover = data.music[random_song].cover;
+
+                    let audio = $("#songControls")[0];
+
+                    audio.src = `/audio/music/${filePath}`;
+                    audio.currentTime = 0;
+                    audio.play();
+
+                    $("#albumCover").attr("src", `/audio/music/${cover}`);
+                    $("#title").text(title);
+                    $("#artist").text(artist);
+
+                });
+                
             })
 
-           /* <div class="track" data-index="">
-                        <img src="audio/music/covers/cherrypop.png" class="previewCover">
 
-                        <div class="previewInfo">
-                            <span class="previewTitle">cherrypop</span>
-                            <span class="previewArtist">Deco*27</span>
-                        </div>
-                    </div*/
             $.getJSON("audio/music/music_info.json", function(data) {
 
                 $.each(data.music, function(index, track) {
@@ -185,6 +201,20 @@
 
                 });
 
+            });
+
+            let audio = $("#songControls")[0];
+
+            audio.addEventListener("play", function() {
+                $("#albumCover").addClass("spinning");
+            });
+
+            audio.addEventListener("pause", function() {
+                $("#albumCover").removeClass("spinning");
+            });
+
+            audio.addEventListener("ended", function() {
+                $("#albumCover").removeClass("spinning");
             });
             
 
@@ -537,8 +567,9 @@
             </div>
             <div id="playlist">
                 <div id ="trackInfo">
-                    <img src="audio/music/covers/placeholder.jpg" alt="album cover">
+                    <img src="audio/music/covers/placeholder.jpg" alt="album cover" id="albumCover">
                     <span id="title">Nothing is playing...</span>
+                    <br>
                     <span id="artist"></span>
                     <audio controls id="songControls"></audio>
                 </div>
