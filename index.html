@@ -193,7 +193,7 @@
             $.getJSON("audio/music/music_info.json", function(data) {
 
                 $.each(data.music, function(index, track) {
-                    $("#trackSelect").append(`<div class="track" data-index="${track.id}"></div>`);
+                    $("#trackSelect").append(`<div class="track" data-index="${index}"></div>`);
                     $(".track").eq(index).append(`<img src="audio/music/${track.cover}" class="previewCover">`);
                     $(".track").eq(index).append(`<div class="previewInfo"></div>`);
                     $(".previewInfo").eq(index).append(`<span class="previewTitle">${track.title}</span>`);
