@@ -15,6 +15,9 @@
         $(function(){
 
 
+            //***************************************************************************
+            //***********************HEADER***************************************   
+            //***************************************************************************
             let gemsAmount;
             if(localStorage.getItem("gems") == null){
                 localStorage.setItem("gems","200");
@@ -93,9 +96,15 @@
                 $("#timeRemaining").text(timeRemaining);
             }, 1000);
 
+            //***************************************************************************
+            //***************************************************************************   
+            //***************************************************************************
 
 
 
+            //***************************************************************************
+            //***********************KOD DO EKRANU TYTUŁOWEGO****************************   
+            //***************************************************************************
             $("#titleLogo").show();
             $('.prettyBtn').on('mouseenter', function() {
                 const sound = $('#hoverSound')[0];
@@ -128,8 +137,19 @@
                 }
             })
 
+
+            //***************************************************************************
+            //***************************************************************************   
+            //***************************************************************************
+
+
+            //***************************************************************************
+            //***********************KOD DO ROZGRYWKI***************************************   
+            //***************************************************************************
+
+
             //ads switching up <3 gotta make money
-        
+            
             counter = 0;
             setInterval(function(){
                 let adLinks = ["https://piapro.net/intl/en.html", "https://games4you.pl/produkt/hatsune-miku-project-mirai-dx-3ds/","https://open.spotify.com/artist/7HwMt9qpoww4yfE3D8886I","https://store.steampowered.com/app/1761390/Hatsune_Miku_Project_DIVA_Mega_Mix/"];
@@ -142,6 +162,7 @@
      
             },500);
 
+            let selectedDifficulty;
             //soon this game will be like half life and will require coconut.png to not crash 
             $("#playBtn").attr("disabled","disabled")//LOOKS DUMB BUT OTHERWISE REFUSES TO WORK (god knows why, because neither me nor does chat GPT know and sure as hell i ain't paying for claude or any ai <//3 
             $(".difficultySelect").click(function(){
@@ -156,8 +177,39 @@
                 everythingElse.addClass("unfocused");
                 everythingElse.removeClass("difficultySelected");
                 $("#playBtn").removeAttr("disabled")
+                console.log(selectedDifficulty)
                 
             });
+
+
+            let difficultyCards = {"easy":6,"normal":8,"hard":10};
+            let cardset = ["miku","rin","len","luka","kaito","meiko","gackpo","gumi","adachi_rei","ia"];
+
+
+            function cardGeneration(amount){
+                //simple for loop, haven't seen that guy for a while <///3
+                let cards = [];
+                let cardSpreadList = [];
+                for(let i = 0; i < amount; i++){
+                    for( let j =0; j < 2; j++){
+                        cards.push(`<img src="images/cards/back.png" data-character="${cardset[i]}">`);
+                    }
+                }
+                //nie mam pojęcia co ja tutaj robię, jeśli to zadziała to się zdziwię. złożoność obliczeniowa prawdopodbnie będzie koszmarnie duża...ale co z tego? każdy ma ram, prawda? :)
+                //NIEE CHCEEEEE DJAIOFHAOKLTJSMOIRLGSJO;
+                //a mogłam w GTA pykać.. (nie stać mnie)
+                //Lucia na mnie czeka
+                
+            
+                let randomCard; 
+
+                while(cards.length > 0){
+                    randomCard = Math.floor(Math.random() * cards.length);
+                    cardSpreadList.push(cards.splice(randomCard, 1)[0]);
+                }
+                console.log(cardSpreadList)
+            }
+
 
             $("#playBtn").click(function(){
                 $("#mainMenu").hide();
@@ -177,18 +229,19 @@
 
                     let audio = $("#songControls")[0];
 
-                    audio.src = `/audio/music/${filePath}`;
+                    audio.src = `audio/music/${filePath}`;
                     audio.currentTime = 0;
                     audio.play();
 
-                    $("#albumCover").attr("src", `/audio/music/${cover}`);
+                    $("#albumCover").attr("src", `audio/music/${cover}`);
                     $("#title").text(title);
                     $("#artist").text(artist);
-
+                    cardGeneration(difficultyCards[selectedDifficulty]);
                 });
-                
-            })
 
+            });
+            
+            //*******************MUZYKA*******************************************************************
 
             $.getJSON("audio/music/music_info.json", function(data) {
 
@@ -236,17 +289,43 @@
 
                     let audio = $("#songControls")[0];
 
-                    audio.src = `/audio/music/${filePath}`;
+                    audio.src = `audio/music/${filePath}`;
                     audio.currentTime = 0;
                     audio.play();
 
-                    $("#albumCover").attr("src", `/audio/music/${cover}`);
+                    $("#albumCover").attr("src", `audio/music/${cover}`);
                     $("#title").text(title);
                     $("#artist").text(artist);
 
                 });
             });
+            //***************************************************************************
 
+            $("#newGameBtn").click(function(){
+                let audio = $("#songControls")[0];
+                audio.pause();
+                const music = $("#bgm_menu")[0];
+                music.play();
+                $("#mainMenu").show();
+                $("#game").hide();
+
+            })
+
+            //***************************************************************************
+            //***************************************************************************   
+            //***************************************************************************
+
+
+
+
+
+
+
+
+
+            //***************************************************************************
+            //***********************KOD DO SKLEPU***************************************   
+            //***************************************************************************
 
             $(".storeRedirect").click(function(){
                 $("#difficultySelectDiv").hide();
@@ -423,6 +502,10 @@
                 
             });
 
+            //***************************************************************************
+            //***************************************************************************   
+            //***************************************************************************
+
 
 
         });
@@ -475,13 +558,13 @@
         </div>
         <div id="difficultySelectDiv">
             <audio id="easySound" src="audio/feedback/easy_game_begin.wav" preload="auto"></audio>
-            <audio id="mediumSound" src="audio/feedback/medium_game_start.wav" preload="auto"></audio>
+            <audio id="normalSound" src="audio/feedback/medium_game_start.wav" preload="auto"></audio>
             <audio id="hardSound" src="audio/feedback/hard_game_begin.wav" preload="auto"></audio>
             <img src="images/select_diff_text.png" id="difficultySelectText">
 
             <div id="difficultyImages">
                 <img src="images/larp.png" alt="easy" data-difficulty="easy" class="difficultySelect">
-                <img src="images/casual.png" alt="normal" data-difficulty="medium" class="difficultySelect">
+                <img src="images/casual.png" alt="normal" data-difficulty="normal" class="difficultySelect">
                 <img src="images/enjoyer.png" alt="hard" data-difficulty="hard" class="difficultySelect">
 
                 <button id="playBtn" class="prettyBtn" disabled>Play!♥</button>
@@ -584,7 +667,9 @@
         </div>
     </div>
     <div id="game">
-        <main id="gameTable"></main>
+        <main id="gameTable">
+            <table id="cardspread"></table>
+        </main>
         <aside id="sideBar">
             <div id="gameInfo">
                 <div id="timer">
@@ -593,6 +678,7 @@
                 <p>Moves: <span id="moves"></span></p>
                 <p>Points: <span id="moves"></span></p>
                 <p>Highscore: <span id="moves"></span></p>
+                <button class="prettyBtn" id="newGameBtn">New game!</button>
             </div>
             <div id="playlist">
                 <div id ="trackInfo">

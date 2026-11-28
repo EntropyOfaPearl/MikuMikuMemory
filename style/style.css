@@ -670,3 +670,18 @@ adnotacja @keyframes służy do
     animation: spin 5s linear infinite;
 }
 
+
+#newGameBtn{
+    width: 15vw;
+    font-size: medium;
+    padding: 10px;
+    height: fit-content;
+    background:linear-gradient(#ec1e74,#d78fad);
+    border-color: #47182c;
+    color: #47182c;
+}
+
+#newGameBtn:hover{
+    border-color: #efe0e8;
+    color: #efe0e8;
+}

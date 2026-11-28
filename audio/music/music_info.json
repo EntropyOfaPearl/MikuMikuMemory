@@ -500,8 +500,15 @@
             "title" : "Solitary Envy",
             "artist" : "koyori",
             "cover" : "covers/solitaryenvy.png"
-        }
+        },
 
+        {
+            "id" : 60,
+            "file_path" : "jojo.mp3",
+            "title" : "Mandatory Jojo reference",
+            "artist" : "Covered by Miku",
+            "cover" : "covers/jojo.jpg"
+        }
 
 
     ]
